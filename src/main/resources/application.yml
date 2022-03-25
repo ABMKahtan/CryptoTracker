@@ -1,0 +1,48 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+crypto:
+  coin-id: bitcoin
+  currency: usd
+  max-value: 39000
+  min-value: 35597
+  email-to-notify: test@test.it
+
+scheduler:
+  frequency: 2000
+
+logging:
+  level:
+    org.springframework.web.client.RestTemplate: DEBUG
+
+
+spring:
+  datasource:
+    #url: jdbc:mariadb://localhost:3307/PriceTracker
+    #username: root
+    #password: mfrU6pcnQD4Z6uQ4
+    #driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/PriceTracker
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MariaDB103Dialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: false
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: cryptopricenotify@gmail.com
+    password: vuphmdkbnkxvgdnx
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
